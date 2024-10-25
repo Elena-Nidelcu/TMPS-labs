@@ -5,7 +5,7 @@ class Main {
         customer1.setName("Lena");
         customer1.setAddress("acasa");
         Order order1 = new Order();
-        order1.setItemName("pork steak");
+        order1.setItemName("pork steakgit ");
         order1.setQuantity(2);
         order1.setCustomer(customer1);
 
