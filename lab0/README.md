@@ -1,5 +1,5 @@
 
-# Creational Design Patterns
+# SOLID principles
 
 
 ## Author: Nidelcu Elena
