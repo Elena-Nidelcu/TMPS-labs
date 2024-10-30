@@ -62,15 +62,6 @@ public abstract class FurniturePrototype implements Cloneable {
 ```
 By implementing the clone() method, this pattern enables the creation of new furniture item based on existing ones, and the modification of prototypes as needed.
 
-
-* Snippets from your files.
-
-
-
-
-* If needed, screenshots.
-
-
 ## Conclusions
 In this project, I chose to create a furniture shop simulator to learn about Creational Design Patterns. By implementing the Factory, Abstract Factory, Builder, and Prototype patterns, I gained a practical understanding of how these patterns help in managing object creation and enhancing code flexibility. This experience has significantly improved my knowledge of Creational Design Patterns.
 
