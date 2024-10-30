@@ -22,25 +22,53 @@
 
 ## Implementation
 
-* I used the Factory method by creating an interface for creating objects, IFurnitureFactory, and a SimpleFurnitureFactory class, which is responsible for creating individual furniture items like chairs, sofas, and coffee tables without exposing the instantiation logic to the client. This encapsulation allows for easier modifications and extensions in the future, if I will add another class, without altering existing code.
-* The Abstract Factory Pattern is represented by the family of furniture factories, such as ModernFurnitureFactory, SimpleFurnitureFactory, VictorianFurnitureFactory which provide an interface for creating families of related or dependent objects (e.g., modern chairs, sofas, and coffee tables). This pattern allows the client to work with various styles of furniture without needing to know the specific classes being instantiated, ensuring consistent product families.
-* The Builder Pattern is implemented in the FurnitureSetBuilder class, which constructs complex furniture sets by aggregating different furniture pieces (chair, sofa, and coffee table) using the same construction code. This pattern promotes a step-by-step construction process, enabling clients to create specific configurations of furniture sets with ease while keeping the construction logic separate from the representation.
-* The Prototype Pattern is exemplified by the PrototypeChair class, which allows me cloning an existing chair. By implementing the clone() method, this pattern enables the creation of new instances based on existing ones, facilitating efficient object creation and the ability to modify prototypes as needed.
+* I used the Factory method by creating an interface for creating objects, IFurnitureFactory, for creating objects in a superclass, and then allows subclasses to alter the type of objects that will be created. I exemplified it by creating a SimpleFurnitureFactory class, which is responsible for creating individual furniture items like chairs, sofas, and coffee tables in simple style. 
+```java
+public class SimpleFurnitureFactory {
+    public IFurniture createFurniture(String type) {
+        switch (type) {
+            case "Chair": return new SimpleChair();
+            case "Sofa": return new SimpleSofa();
+            case "CoffeeTable": return new SimpleCoffeeTable();
+            default: throw new IllegalArgumentException("Unknown furniture type.");
+        }
+    }
+}
+```
+This encapsulation allows for easier modifications and extensions in the future, if I will add another style of furniture, without modifying existing styles.
+* The Abstract Factory Pattern is used when I represented the families of furniture factories, such as ModernFurnitureFactory, SimpleFurnitureFactory and VictorianFurnitureFactory, which provide an interface for creating families of related objects without specifying their concrete classes (e.g., modern chairs, modern sofas, and modern coffee tables). 
+```java
+public class ModernFurnitureFactory implements IFurnitureFactory {
+    public IChair createChair() { return new ModernChair(); }
+    public ISofa createSofa() { return new ModernSofa(); }
+    public ICoffeeTable createCoffeeTable() { return new ModernCoffeeTable(); }
+}
+```
+This pattern allows the client to work with various styles of furniture and be sure that the products I'm getting from a factory are compatible with each other.
+* The Builder Pattern is implemented in the FurnitureSetBuilder class, which constructs complex furniture sets allows me to produce different types and representations of furniture pieces (chair, sofa, and coffee table) using the same construction code.
+```java
+    public FurnitureSet build() {
+        return new FurnitureSet(chair, sofa, coffeeTable);
+    }
+
+```
+This pattern promotes a step-by-step construction process, ensuring Single Responsibility Principle, because I can isolate complex configurations of furniture sets from the business logic.
+* The Prototype Pattern is exemplified by the PrototypeChair class, which allows me cloning an existing chair. The pattern declares a common abstract class for all objects that support cloning. This class (FurniturePrototype) lets me clone an object without coupling the code to the class of that object. This class contains just a single clone method. 
+```java
+public abstract class FurniturePrototype implements Cloneable {
+    public abstract FurniturePrototype clone();
+}
+
+```
+By implementing the clone() method, this pattern enables the creation of new furniture item based on existing ones, and the modification of prototypes as needed.
 
 
-[//]: # (* Snippets from your files.)
+* Snippets from your files.
 
-[//]: # ()
-[//]: # (```)
 
-[//]: # (public void main&#40;&#41; {)
 
-[//]: # ()
-[//]: # (})
 
-[//]: # (```)
-
-[//]: # (* If needed, screenshots.)
+* If needed, screenshots.
 
 
 ## Conclusions
