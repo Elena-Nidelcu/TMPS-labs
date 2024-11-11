@@ -55,21 +55,8 @@ public class HeatedSeatsDecorator extends SofaDecorator {
     }
 }
 ```
-[//]: # (* Snippets from your files.)
 
-[//]: # ()
-[//]: # (```)
-
-[//]: # (public void main&#40;&#41; {)
-
-[//]: # ()
-[//]: # (})
-
-[//]: # (```)
-
-
-
-## Conclusions / Screenshots / Results
+## Conclusions 
 I continued my project with a furniture shop simulator to learn about Structural Design Patterns. By implementing the Bridge, Facade, and Decorator, I gained a practical understanding of how these patterns help in a clear separation between furniture types and styles (Bridge), creation of a simpler interface (Facade) and addition of optional features to furniture dynamically (Decorator). This experience has significantly improved my knowledge of Structural Design Patterns.
 
 ## References
