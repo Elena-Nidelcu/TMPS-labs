@@ -1,4 +1,4 @@
-# Creational Design Patterns
+# Behavioral Design Patterns
 
 
 ## Author: Nidelcu Elena
@@ -19,20 +19,24 @@
 
 ## Implementation
 
-* The Observer Pattern is used in the project to implement a notification system for the furniture shop. It allows the shop (FurnitureShop class) to notify registered observers (e.g., Customer and Admin) about events like adding new furniture or applying discounts. Observers are decoupled from the shop, enabling flexibility and scalability in managing notifications. This pattern enhances user engagement by keeping customers informed about updates and helps admins monitor shop activities effectively. The integration of this pattern with the shop's facade ensures seamless management and simplifies interaction with other components of the system.
+* I used the Observer Pattern to implement a notification system for the furniture shop. It defines a subscription mechanism and notifies the customers if the shop adds new furniture or applies discounts. This pattern helps keeping customers informed about updates. To implement this pattern I created interfaces for observer and subject and classes for Admin, Customer and FurnitureShop.
+```
+public void addNewFurniture(IFurnitureType furniture) {
+    System.out.println("New Bridge.Furniture Added:");
+    furniture.displayType();
+    notifyObservers("New furniture added: " + furniture.getClass().getSimpleName());
+}
 
-[//]: # (```)
-
-[//]: # (public void main&#40;&#41; {)
-
-[//]: # ()
-[//]: # (})
-
-[//]: # (```)
+public void applyDiscount(IFurnitureType furniture) {
+    System.out.println("Discount Applied:");
+    furniture.displayType();
+    notifyObservers("Discount on furniture: " + furniture.getClass().getSimpleName());
+}
+```
 
 
 ## Conclusions / Screenshots / Results
-This project demonstrates the integration of various design patterns to create a robust and maintainable furniture shop management system. The use of Structural Patterns like Facade and Bridge ensures a modular and flexible structure, simplifying complex interactions and promoting scalability. The incorporation of the Observer Pattern introduces a dynamic notification mechanism, keeping users and administrators informed about important updates in real-time. By leveraging these patterns, the system achieves a balance between usability, adaptability, and efficiency, serving as a solid foundation for further enhancements and real-world applications.
+I continued my project with a furniture shop simulator to learn about Behavioral Design Patterns. Here I integrated the observer design pattern along with the structural design patterns to create subscribing and notifying furniture shop management system. The incorporation of the Observer Pattern introduces this notification mechanism to keep users informed about important updates in real-time. This experience has significantly improved my knowledge of Behavioral Design Patterns.
 
 ## References
 https://refactoring.guru/design-patterns/behavioral-patterns
